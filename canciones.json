@@ -1,0 +1,22 @@
+[{
+    "name": "Cancion1",
+    "artist": "Artista1",
+    "album": "Album1",
+    "duration": 100
+},{
+    "name": "Cancion2",
+    "artist": "Artista2",
+    "album": "Album2",
+    "duration": 200
+},{
+    "name": "Cancion3",
+    "artist": "Artista3",
+    "album": "Album3",
+    "duration": 300
+},{
+    "name": "Cancion4",
+    "artist": "Artista4",
+    "album": "Album4",
+    "duration": 400
+}
+]

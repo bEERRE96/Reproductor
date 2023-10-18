@@ -138,6 +138,8 @@ body::-webkit-scrollbar-thumb{
     color: white;
     background-color: transparent;
     margin-left: 30px;
+    border:transparent;
+    cursor: pointer;
 }
 
 .cuadrosListas>span {
