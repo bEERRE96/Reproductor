@@ -197,7 +197,7 @@ body::-webkit-scrollbar-thumb{
     justify-content: space-between;
     width: 30%;
     border-radius: 20px;
-    background-color: #0F0F0F;
+    background-color: #404040;
     gap: 10px;
 }
 
@@ -229,7 +229,7 @@ body::-webkit-scrollbar-thumb{
     width: 10rem;
     height: 12rem;
     border-radius: 20px;
-    background-color: #0F0F0F;
+    background-color: #171717;
     gap: 15px;
 }
 .segundaLinea div>span{
