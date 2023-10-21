@@ -1,22 +1,26 @@
 [{
-    "name": "Cancion1",
+    "name": "Amorfoda",
     "artist": "Artista1",
     "album": "Album1",
-    "duration": 100
+    "duration": 100,
+    "url":"./CancionesMP3/Y2meta.app - BAD BUNNY - AMORFODA (Video Oficial) (128 kbps).mp3"
 },{
-    "name": "Cancion2",
+    "name": "Soy Peor",
     "artist": "Artista2",
     "album": "Album2",
-    "duration": 200
+    "duration": 200,
+    "url":"./CancionesMP3/Y2meta.app - BAD BUNNY - SOY PEOR (Video Oficial) (128 kbps).mp3"
 },{
-    "name": "Cancion3",
+    "name": "Ella y Yo",
     "artist": "Artista3",
     "album": "Album3",
-    "duration": 300
+    "duration": 300,
+    "url":"./CancionesMP3/Y2meta.app - Pepe Quintana - Ella y Yo [Official Video] ft. Farruko , Anuel AA , Tempo , Almighty , Bryant Myers (128 kbps).mp3"
 },{
     "name": "Cancion4",
     "artist": "Artista4",
     "album": "Album4",
-    "duration": 400
+    "duration": 400,
+    "url":"Url cancion 4"
 }
 ]
