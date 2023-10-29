@@ -14,19 +14,21 @@
 
 <body>
     <div class="aplicacion">
-
         <!-- MENU COSTADO -->
         <aside class="menu">
-
             <!-- BUSCADOR Y HOME -->
             <div class="inicioBuscador">
                 <img src="./Assets/logo.png" alt="logo" height="100px" width="100px">
                 <div class="botonesInicio">
-                    <button><img src="./Assets/white-home-icon-png-8-removebg-preview-removebg-preview.png" width="18px"
-                            height="15px">Home</button>
+                    <div class="botonHome">
+                        <a href="./index.html"><img class="fotoHome"
+                                src="./Assets/white-home-icon-png-8-removebg-preview-removebg-preview.png" width="18px"
+                                height="15px">Home</a>
+                    </div>
                     <div class="barraBuscador">
-                        <img src="./Assets/lupa-removebg-preview-removebg-preview.png" width="18px" height="18px">
-                        <input placeholder="Buscar..." id="inputBuscar"></input>
+                        <img class="fotoLupa" src="./Assets/lupa-removebg-preview-removebg-preview.png" width="18px"
+                            height="18px">
+                        <input placeholder="Buscar..."></input>
                     </div>
                 </div>
             </div>
@@ -36,7 +38,7 @@
             <div class="biblioteca">
                 <h2>Tu Biblioteca</h2>
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas">
                     <img src="./Assets/playlist1.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Mi Musica</span>
@@ -45,7 +47,7 @@
                 </div>
 
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas">
                     <img src="./Assets/playlist2.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Para Discoteca</span>
@@ -54,7 +56,7 @@
                 </div>
 
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas">
                     <img src="./Assets/playlist3.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Relajante</span>
@@ -63,7 +65,7 @@
                 </div>
 
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas" >
                     <img src="./Assets/playlist4.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Ritmos Latinos</span>
@@ -73,7 +75,7 @@
 
 
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas">
                     <img src="./Assets/playlist5.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Techno - Electronic</span>
@@ -83,7 +85,7 @@
 
 
 
-                <div class="cuadrosListas">
+                <div id="listasReproduccion" class="cuadrosListas">
                     <img src="./Assets/playlist6.jpg" alt="logo" height="80px" width="80px">
                     <div class="listasIndividuales">
                         <span>Variado</span>
@@ -99,294 +101,336 @@
 
 
         <!-- PANTALLA PRINCIPAL -->
-        <div class="main">
-            <h2>Bienvenido, nuevamente</h2>
-            <h4>Nuevos Lanzamientos</h4>
+        <div class="main" id="main">
+            <div class="barraNav">
+                <div>
+                    <a class="atrasBut" href="./index.html"><img src="./Assets/flecha.png" width="50px"></a>
+                </div>
+                <div>
+                    <button class="log">Login</button>
+                    <button class="reg">Sign Up</button>
+                </div>
+            </div>
+
             <!-- TU MUSICA -->
+            <div id="musicList"></div>
 
-            <div class="tuMusica">
-                <div>
-                    <img src="./Assets/nadiesabebad.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                        Amorfoda
-                        </span>
-                        <span>
-                            Bad Bunny
-                        </span>
-                    </div>
-                    <button class="botonPlayLista"><img src="./Assets/PLAY.png" alt="" width="30px"
-                            height="30px"></button>
+            <div id="contenedorPrincipal">
+                <div class="tituloBienvenida">
+                    <h2>Bienvenido, nuevamente</h2>
+                    <h4>Nuevos Lanzamientos</h4>
                 </div>
 
-                <div>
-                    <img src="./Assets/afrolova23.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                            Soy Peor (Remix)
-                        </span>
-                        <span>
-                            Bad Bunny
-                        </span>
-                    </div>
-                    <button class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
-                            height="30px"></button>
-                </div>
-                <div>
-                    <img src="./Assets/endormirsinmadrid.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                            Ella y Yo (Remix)
-                        </span>
-                        <span>
-                            Farruko & Tempo
-                        </span>
-                    </div>
-                    <button class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
-                            height="30px"></button>
-                </div>
-                <div>
-                    <img src="./Assets/songsofsurrender.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                            Sons of Surrender
-                        </span>
-                        <span>
-                            U2
-                        </span>
-                    </div>
-                    <button class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width=" 30px"
-                            height="30px"></button>
-                </div>
-                <div>
-                    <img src="./Assets/EADDA.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                            EADDA9223
-                        </span>
-                        <span>
-                            Fito Paez
-                        </span>
-                    </div>
-                    <button class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
-                            height="30px"></button>
-                </div>
-                <div>
-                    <img src="./Assets/THEBALLADOFDARREN.jpg" alt="" width="100px" height="100px">
-                    <div class="albumNuevo">
-                        <span>
-                            The Ballad of Darren
-                        </span>
-                        <span>
-                            Blur
-                        </span>
-                    </div>
-                    <button class="botonPlayLista">
-                        <img src="./Assets/PLAY.png" alt="" width="30px" height="30px">
-                    </button>
-                </div>
-            </div>
 
-            <h4>Vuelve a tu musica</h4>
+                <div class="tuMusica">
+                    <div>
+                        <img src="./Assets/nadiesabebad.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                Nadie sabe lo que pas..
+                            </span>
+                            <span>
+                                <i>Bad Bunny</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista"><img src="./Assets/PLAY.png" alt="" width="30px"
+                                height="30px"></button>
+                    </div>
 
-            <!-- SEGUNDA LISTA -->
-            <div class="listasRecomendadas">
-                <div class="segundaLinea">
                     <div>
-                        <img src="./Assets/amorfoda.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Amorfoda
-                        </span>
-                        <span>
-                            Bad Bunny
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                        <img src="./Assets/afrolova23.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                AfroLOVA' 23
+                            </span>
+                            <span>
+                                <i>Rels B</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
+                                height="30px"></button>
                     </div>
                     <div>
-                        <img src="./Assets/battery.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Battery
-                        </span>
-                        <span>
-                            Metallica
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                        <img src="./Assets/endormirsinmadrid.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                En dormir sin Madrid
+                            </span>
+                            <span>
+                                <i>Milo J</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
+                                height="30px"></button>
                     </div>
                     <div>
-                        <img src="./Assets/atoutlemonde.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            A tout le monde
-                        </span>
-                        <span>
-                            Megadeth
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                        <img src="./Assets/songsofsurrender.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                Sons of Surrender
+                            </span>
+                            <span>
+                                <i>U2</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista"> <img src="./Assets/PLAY.png" alt=""
+                                width=" 30px" height="30px"></button>
                     </div>
                     <div>
-                        <img src="./Assets/columbia.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Columbia
-                        </span>
-                        <span>
-                            Quevedo
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                        <img src="./Assets/EADDA.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                EADDA9223
+                            </span>
+                            <span>
+                                <i>Fito Paez</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista"> <img src="./Assets/PLAY.png" alt="" width="30px"
+                                height="30px"></button>
                     </div>
                     <div>
-                        <img src="./Assets/2pac.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Changes
-                        </span>
-                        <span>
-                            2Pac
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/itsmylife.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Its my life
-                        </span>
-                        <span>
-                            Bon Jovi
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                        <img src="./Assets/THEBALLADOFDARREN.jpg" alt="" width="100px" height="100px">
+                        <div class="albumNuevo">
+                            <span>
+                                The Ballad of Darren
+                            </span>
+                            <span>
+                                <i>Blur</i>
+                            </span>
+                        </div>
+                        <button id="listasReproduccion" class="botonPlayLista">
+                            <img src="./Assets/PLAY.png" alt="" width="30px" height="30px">
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <h4>Porque elegiste Metallica</h4>
+                <h4>Vuelve a tu musica</h4>
 
-            <!-- TECERA LISTA -->
-            <div class="listasRecomendadas">
-                <div class="segundaLinea">
-                    <div>
-                        <img src="./Assets/BLACK ALBUM.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Enter Sadman
-                        </span>
-                        <span>
-                            <i>The Black Album</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/andjustice.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            One
-                        </span>
-                        <span>
-                            <i>And Justice for All</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/BLACK ALBUM.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Sad but True
-                        </span>
-                        <span>
-                            <i>The Black Album</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/BLACK ALBUM.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            The Unforgiven
-                        </span>
-                        <span>
-                            <i>The Black Album</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/RIDETHELIGHTNING.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Fade To Black
-                        </span>
-                        <span>
-                            <i>Ride the Lightning</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/KILLEMALL.jpg" alt="" width="100px" height="80px">
-                        <span>
-                            Seek & Destroy
-                        </span>
-                        <span>
-                            <i>Kill 'Em All</i>
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                <!-- SEGUNDA LISTA -->
+                <div class="listasRecomendadas">
+                    <div class="segundaLinea">
+                        <div>
+                            <img src="./Assets/amorfoda.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Amorfoda
+                            </span>
+                            <span>
+                                Bad Bunny
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/battery.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Battery
+                            </span>
+                            <span>
+                                Metallica
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/atoutlemonde.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                A tout le monde
+                            </span>
+                            <span>
+                                Megadeth
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/columbia.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Columbia
+                            </span>
+                            <span>
+                                Quevedo
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/2pac.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Changes
+                            </span>
+                            <span>
+                                2Pac
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/2pac.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Changes
+                            </span>
+                            <span>
+                                2Pac
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+
                     </div>
                 </div>
-            </div>
 
-            <h4>Los mejores podcast</h4>
+                <div class="tituloElegiste">
+                    <h4>Porque elegiste Metallica</h4>
+                </div>
 
-            <!-- CUARTA LISTA -->
-            <div class="listasRecomendadas">
-                <div class="segundaLinea">
-                    <div>
-                        <img src="./Assets/CAJANEGRA.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 1
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                <!-- TECERA LISTA -->
+                <div class="listasRecomendadas">
+                    <div class="segundaLinea">
+                        <div>
+                            <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Enter Sadman
+                            </span>
+                            <span>
+                                <i>The Black Album</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/andjustice.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                One
+                            </span>
+                            <span>
+                                <i>And Justice for All</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Sad but True
+                            </span>
+                            <span>
+                                <i>The Black Album</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                The Unforgiven
+                            </span>
+                            <span>
+                                <i>The Black Album</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/RIDETHELIGHTNING.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Fade To Black
+                            </span>
+                            <span>
+                                <i>Ride the Lightning</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/RIDETHELIGHTNING.jpg" alt="" width="130px" height="100px">
+                            <span>
+                                Fade To Black
+                            </span>
+                            <span>
+                                <i>Ride the Lightning</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+
                     </div>
-                    <div>
-                        <img src="./Assets/Historiasinnecesarias.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 2
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/Relatos Historias de Crimenes.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 3
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/TED EN ESPAÑOL.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 4
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/RELATOSDELANOCHE.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 5
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
-                    </div>
-                    <div>
-                        <img src="./Assets/psicologiaaldesnudo.png" alt="" width="100px" height="100px">
-                        <span>
-                            Cancion 6
-                        </span>
-                        <button class="botonPlayLista2"><img src="./Assets/PLAY.png" alt="" width="0px"
-                                height="0px"></button>
+                </div>
+
+                <div class="tituloPodcast">
+                    <h4>Los mejores podcast</h4>
+                </div>
+
+                <!-- CUARTA LISTA -->
+                <div class="listasRecomendadas">
+                    <div class="segundaLinea">
+                        <div>
+                            <img src="./Assets/CAJANEGRA.png" alt="" width="130px" height="100px">
+                            <span>
+                                Caja Negra
+                            </span>
+                            <span>
+                                <i>Filo News</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/Historiasinnecesarias.png" alt="" width="130px" height="100px">
+                            <span>
+                                Historias Innecesarias
+                            </span>
+                            <span>
+                                <i>Damian Kuc</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/Relatos Historias de Crimenes.png" alt="" width="130px" height="100px">
+                            <span>
+                                Relatos: Historias de Crimenes
+                            </span>
+                            <span>
+                                <i>Autor Anonimo</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/TED EN ESPAÑOL.png" alt="" width="130px" height="100px">
+                            <span>
+                                TED en español
+                            </span>
+                            <span>
+                                <i>TED</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/RELATOSDELANOCHE.png" alt="" width="130px" height="100px">
+                            <span>
+                                Relatos de la noche
+                            </span>
+                            <span>
+                                <i>Sonoro | RDLN</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+                        <div>
+                            <img src="./Assets/RELATOSDELANOCHE.png" alt="" width="130px" height="100px">
+                            <span>
+                                Relatos de la noche
+                            </span>
+                            <span>
+                                <i>Sonoro | RDLN</i>
+                            </span>
+                            <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
+                                    width="0px" height="0px"></button>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -398,18 +442,33 @@
         <!-- PLAYER -->
         <div class="player">
             <div class="contenedorReproductor">
-                <div class="nombreCancionReproductor">
+
+                <div id="nombreCancionReproducida">
+
                 </div>
-                <div>
-                    <audio controls src="#">
-                    </audio>
+
+                <div class="botonesRepro">
+                    <button id="botonBack"><img src="./Assets/BACK_REPRO-removebg-preview.png" width="50px"
+                            height="50px"></button>
+                    <button id="botonPause"><img src="./Assets/PAUSE_REPRO-removebg-preview.png" width="50px"
+                            height="50px"></button>
+                    <button id="botonPlay"><img src="./Assets/PLAY_REPRO-removebg-preview.png" width="55px"
+                            height="55px"></button>
+                    <button id="botonStop"><img src="./Assets/stop.png" alt="" width="50px" height="50px"></button>
+                    <button id="botonNext"><img src="./Assets/NEXT_REPRO-removebg-preview.png" width="50px"
+                            height="50px"></button>
+                    <audio src="#" controls></audio>
                 </div>
-                <div>
-                    Usuario
+
+                <div class="barraSonido">
+                    <input class="barraVolume" type="range" id="volume-control">
                 </div>
+
             </div>
         </div>
+
         <script type="module" src="./code.js"></script>
+
 </body>
 
 </html>

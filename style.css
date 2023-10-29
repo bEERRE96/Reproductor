@@ -8,13 +8,13 @@ body {
     background-color: rgb(15, 15, 15);
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
     width: 10px;
     background-color: rgb(15, 15, 15);
-    }
+}
 
-body::-webkit-scrollbar-thumb{
-    background-color: rgba(255,255,255, .2);
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .1);
     border-radius: 10px;
     border-right: 2px solid rgb(15, 15, 15);
 }
@@ -29,8 +29,9 @@ body::-webkit-scrollbar-thumb{
 .aplicacion {
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: 1fr 1fr auto;
     grid-template-areas:
+        "header header"
         "aside main"
         "player player";
     width: 100%;
@@ -44,7 +45,7 @@ body::-webkit-scrollbar-thumb{
     grid-area: aside;
     display: flex;
     flex-direction: column;
-    background-color: #0F0F0F;
+    background-color: rgb(15, 15, 15);;
     gap: 5px;
     padding: 10px;
     overflow: scroll;
@@ -53,13 +54,13 @@ body::-webkit-scrollbar-thumb{
     height: 100%;
 }
 
-.menu::-webkit-scrollbar{
+.menu::-webkit-scrollbar {
     width: 10px;
-    background-color: rgb(15,15,15);
+    background-color: rgb(15, 15, 15);
 }
 
-.menu::-webkit-scrollbar-thumb{
-    background-color: rgba(255,255,255, .2);
+.menu::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, .1);
     border-radius: 10px;
     border-right: 2px solid rgb(15, 15, 15);
 }
@@ -67,14 +68,13 @@ body::-webkit-scrollbar-thumb{
 .menu .inicioBuscador {
     display: grid;
     grid-template-columns: 20% 80%;
-    border: 1px solid black;
     width: 100%;
     height: 100%;
-    background-color: #272829;
+    background-color: #161515;
     border-radius: 10px;
 }
 
-.inicioBuscador>img{
+.inicioBuscador>img {
     margin-left: 0px;
 }
 
@@ -86,9 +86,10 @@ body::-webkit-scrollbar-thumb{
     width: 100%;
     right: 100px;
     gap: 5px;
+    background-color: rgba(15, 15, 15, .2);
 }
 
-.botonesInicio>button {
+.botonesInicio>div>button {
     background-color: transparent;
     border: none;
     height: 1.5rem;
@@ -96,29 +97,58 @@ body::-webkit-scrollbar-thumb{
     color: white;
     font-size: 1rem;
     font-weight: 500;
+    padding: 0;
 }
 
-.botonesInicio>button>img{
+
+.botonesInicio>button>img {
     margin-right: 5px;
     margin-top: 5px;
+    margin-left: 10px;
 }
 
-.botonesInicio>button:hover{
+.botonHome a{
+    text-decoration: none;
+}
+
+.botonHome a:visited{
+    text-decoration: none;
+    color: white;
+}
+
+.fotoHome {
+    margin-right: 15px;
+}
+
+.botonesInicio>button:hover {
     cursor: pointer;
     transform: scale(1.1);
     opacity: 0.5;
 }
 
+.barraBuscador {
+    display: flex;
+    justify-content: center;
+
+}
+
+.barraBuscador>input {
+    background: transparent;
+    border: 0;
+    font-weight: 800;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
 /* TU BIBLIOTECA */
 
 .menu .biblioteca {
-    border: 1px solid black;
     display: flex;
     flex-direction: column;
     gap: 5px;
     color: white;
     border-radius: 10px;
-    background-color: #272829;
+    background-color: #161515;
     align-items: start;
 }
 
@@ -137,9 +167,7 @@ body::-webkit-scrollbar-thumb{
     height: 100px;
     color: white;
     background-color: transparent;
-    margin-left: 30px;
-    border:transparent;
-    cursor: pointer;
+    padding-left: 30px;
 }
 
 .cuadrosListas>span {
@@ -152,7 +180,7 @@ body::-webkit-scrollbar-thumb{
     transform: scale(1.1);
 }
 
-.listasIndividuales{
+.listasIndividuales {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -163,23 +191,80 @@ body::-webkit-scrollbar-thumb{
     margin: 0;
 }
 
-.espaciadoMenu{
+.espaciadoMenu {
     height: 100px;
+}
+/* DIV RENDERIZADO PARA LISTAS */
+
+#listMusic{
+    display: none;
 }
 
 /* CONTENEDOR MAIN */
 
 .main {
     grid-area: main;
-    background: linear-gradient(0deg,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)), url(./Assets/aboutUs.jpg);
+    background: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.8),
+        rgba(0,0,0,0.8)
+    ),url(./Assets/imagencontact.jpg);
     background-size: cover;
     padding: 15px 23px;
     width: 99%;
     border-radius: 2%;
     margin: 0px 10px;
 }
+
+.barraNav {
+    grid-area: header;
+    height: 50px;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.barraNav>div>button {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 10px 0;
+    transition: 0.4s;
+}
+
+.reg {
+    color: white;
+    background-color: #7a2fa9;
+    width: 100px;
+}
+
+.log {
+    color: white;
+    background-color: rgba(104, 103, 103, 0.1);
+    width: 100px;
+    margin-right: 10px;
+}
+
+.log:hover{
+    background-color: #7a2fa9;;
+}
+
+.reg:hover {
+    color: white;
+    background-color: rgba(104, 103, 103, 0.5);
+}
+
+.atrasBut{
+background-color: transparent;
+margin-left: 0px;
+}
+
+.atrasBut>img:hover{
+    background-color: rgba(104, 103, 103, 0.1);
+    border-radius: 50%;
+    }
 
 
 .tuMusica {
@@ -197,55 +282,63 @@ body::-webkit-scrollbar-thumb{
     justify-content: space-between;
     width: 30%;
     border-radius: 20px;
-    background-color: #404040;
+    background-color: #0F0F0F;
     gap: 10px;
+    text-align: center;
 }
 
-.tuMusica .albumNuevo{
+.tuMusica>div:hover {
+    cursor: pointer;
+    background-color: rgba(104, 103, 103, 0.1);
+}
+
+.tuMusica .albumNuevo {
     display: flex;
     flex-direction: column;
     width: auto;
     gap: 15px;
 }
 
-.listasRecomendadas{
+.listasRecomendadas {
     height: 190px;
 }
 
-
 .segundaLinea{
     display: flex;
-    justify-content: space-around;
     flex-wrap: nowrap;
+    gap: 15px;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
 .segundaLinea>div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    border: 1px solid black;
-    width: 10rem;
+    border-radius: 10px;
+    background-color: #0F0F0F;
     height: 12rem;
-    border-radius: 20px;
-    background-color: #171717;
-    gap: 15px;
-}
-.segundaLinea div>span{
-    text-align: center;
-}
-.segundaLinea>div>img{
-    margin-top: 15px;
+    width: 10rem;
 }
 
-.segundaLinea>div:hover{
+.segundaLinea div>span {
+    text-align: center;
+}
+
+.segundaLinea>div>img {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.segundaLinea>div:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.botonPlayLista, .botonPlayLista2 {
+.botonPlayLista,
+.botonPlayLista2 {
     border: 0;
     background-color: transparent;
     cursor: pointer;
@@ -254,19 +347,55 @@ body::-webkit-scrollbar-thumb{
 .segundaLinea div:hover>button>img {
     width: 30px;
     height: 30px;
+    -webkit-animation: scale-up-br 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: scale-up-br 0.8s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
+
+@keyframes botonPlayLista2 {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+}
+
+@keyframes scale-up-br {
+    0% {
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transform-origin: 100% 100%;
+        transform-origin: 100% 100%;
+    }
+}
+
 
 .segundaLinea div:hover>span {
     display: none;
 }
 
-
-.segundaLinea>div:hover{
-    background-color: #272829;
+.segundaLinea>div:hover {
+    background-color: rgba(104, 103, 103, 0.1);
     cursor: pointer;
     padding: 10px;
 
 }
+
+
 
 /* PLAYER */
 
@@ -288,16 +417,62 @@ body::-webkit-scrollbar-thumb{
     margin: 0px 20px;
 }
 
-.audio-player {
-    width: 300px;
-    color: white;
+.botonesRepro{
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    background-color: #161515;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.botonesRepro>button{
+    background: transparent;
+    border: 0;
+    gap: 1px;
+}
+audio {
+    display: none;
 }
 
-.espaciado{
+#botonPause{
+    display: none;
+}
+
+.espaciado {
     height: 100px;
 }
 
+#nombreCancionReproducida{
+    width: 200px;
+}
 
+.barraVolume {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #7a2fa9;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-right: 10px;
+  }
+  
+  .barraVolume:hover {
+    opacity: 1;
+  }
+  
+  .barraVolume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #7a2fa9;
+    cursor: pointer;
+    box-shadow:0px 0px 11px 8px rgba(0,0,0,0.26);
+    background: url(https://www.flaticon.com/svg/vstatic/svg/59/59089.svg?token=exp=1614064733~hmac=a6f0cce2214fdb52e7df9eec24006427) white;
+    background-size: 85%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
