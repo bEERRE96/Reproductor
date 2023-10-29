@@ -447,6 +447,7 @@ audio {
 
 .barraVolume {
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     height: 10px;
     border-radius: 5px;
@@ -475,4 +476,39 @@ audio {
     background-size: 85%;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+/*Contenedor principal de la renderizacion */
+  #renderizadoSecundario{
+    display:none;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+
+  /* Contenedor que separa spans y los botones */
+#divPlaylist{
+    display:flex;
+    justify-content: space-between;
+}
+
+#divPlaylist>button{
+    width: 200px;
+    border: 2px solid red;
+    cursor: pointer;
+}
+
+/*Contenedor de los span de las playlist*/
+
+  #divPlaylist2{
+    display: flex;
+    flex-direction: column;
+    gap:0px 8px;
+  }
+
+  #divPlaylist2>span:nth-child(1){
+    font-size: 25px;
+    font-weight: bold;
+    color: red;
   }
