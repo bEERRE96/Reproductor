@@ -14,6 +14,9 @@ const volume = document.querySelector("#volume-control");
 const nombreCancionReproducida = document.querySelector("#nombreCancionReproducida")
 
 /*************FUNCIONALIDADES REPRODUCTOR*************/
+reproductorMusica.volume = 0.1;  // Hago que la cancion empiece con el 50% del volumen para despues interactuar con el
+
+volume.value = 10; // Le asigno un valor inicial a la barra de volumen
 
 
 let regex = /\w+/gi;
@@ -43,7 +46,7 @@ botonReproducir.forEach(boton => {
       {
         reproductorMusica.src = `${cancion.url}` //Se coloca template string porque debe pasarse como texto al html
         reproductorMusica.play(); //si encuentra todo va a pasar el URL a audio y le da play a la musica
-        reproductorMusica.volume = 0.5;  // Hago que la cancion empiece con el 50% del volumen para despues interactuar con el
+      
         botonPlay.style.display = "none";
         botonPause.style.display = "block";
         crearSpan.textContent = `${cancion.nombre} - ${cancion.artista}` //El span creado cambia su contenido de texto dependiendo la cancion pasada al elemento audio. El objeto cancion toma como dato el nombre de la cancion y el nombre del artista.
@@ -99,6 +102,9 @@ botonBack.addEventListener("click", () => {
   }
 });
 
+
+
+//funcion para manejar el volumen respecto a una barra input de rangos
 volume.addEventListener("change", (ev) => {
 reproductorMusica.volume = ev.currentTarget.value / 100;
 console.log(reproductorMusica.volume);
@@ -131,5 +137,71 @@ botonPlaylist.addEventListener("click", () => {
 
 
 /*****************PASAR DE CANCION ***********************/
+
+
+/*FUNCION PARA AGREGAR PLAYLISTS
+const app = document.querySelector("#app")
+const playList = document.querySelector("#listaPlay")
+
+
+
+  for(let playlist of playList.children){
+    canciones.forEach((cancion) => {
+      if(playlist.innerText.toLowerCase() == cancion.album.toLowerCase()){
+        playlist.addEventListener("click", ()=> {
+          if(app.children.length == 0){
+            cancion.listadoMusica.forEach((lista)=> {
+                const spanArtista = document.createElement("span")
+                const spanCancion = document.createElement("span")
+                const div = document.createElement("div");
+                const botonPlaylist = document.createElement("button")
+                div.setAttribute("id","divPlaylist")
+                app.appendChild(div);
+                div.appendChild(spanCancion)
+                div.appendChild(spanArtista)
+                div.appendChild(botonPlaylist)
+                spanCancion.textContent = `Cancion: ${lista.nombre}`
+                spanArtista.textContent = `Artista: ${lista.artista}`
+                botonPlaylist.textContent = `Play`
+          }) }
+          else{
+            app.innerHTML = `<div id="app"></div>`
+            cancion.listadoMusica.forEach((lista)=> {
+              const spanArtista = document.createElement("span")
+              const spanCancion = document.createElement("span")
+              const div = document.createElement("div");
+              const botonPlaylist = document.createElement("button")
+              div.setAttribute("id","divPlaylist")
+              app.appendChild(div);
+              div.appendChild(spanCancion)
+              div.appendChild(spanArtista)
+              div.appendChild(botonPlaylist)
+              spanCancion.textContent = `Cancion: ${lista.nombre}`
+              spanArtista.textContent = `Artista: ${lista.artista}`
+              botonPlaylist.textContent = `Play`
+        })
+          }
+        })
+      }
+    })
+  }
+
+*/
+
+
+/* Funcion para avanzar o retroceder cancion siguiente o anterior
+let cancionSelec = canciones.findIndex((cancion) =>
+ cancion.url == audio.src);
+
+if (cancionSelec === canciones.length - 1) {
+  audio.src = canciones[0].url;
+} else {
+  audio.src = canciones[cancionSelec + 1].url;
+}
+
+*/
+
+
+
 
 
