@@ -163,10 +163,17 @@ listasDePlay.forEach((playlists) => {
                 spanArtista.textContent = `${lista.artista}`;
                 botonPlaylist.textContent = `Play`;
 
-                
+
                 botonPlaylist.addEventListener("click", () => {
-                  console.log("Hello");
-                });
+                  if(div2.children[0].textContent == lista.nombre){
+                    reproductorMusica.src = `${lista.url}`; 
+                    reproductorMusica.play();
+  
+                    botonPlay.style.display = "none";
+                    botonPause.style.display = "block";
+                    crearSpan.textContent = `${lista.nombre} - ${lista.artista}`;
+                  }
+                 });
               });
             } else {
               app.innerHTML = `<div id="renderizadoSecundario"></div>`;
@@ -188,10 +195,16 @@ listasDePlay.forEach((playlists) => {
                 spanArtista.textContent = `${lista.artista}`;
                 botonPlaylist.textContent = `Play`;
 
-
                 botonPlaylist.addEventListener("click", () => {
-                  console.log("Hello");
-                });
+                  if(div2.children[0].textContent == lista.nombre){
+                    reproductorMusica.src = `${lista.url}`; 
+                    reproductorMusica.play();
+  
+                    botonPlay.style.display = "none";
+                    botonPause.style.display = "block";
+                    crearSpan.textContent = `${lista.nombre} - ${lista.artista}`;
+                  }
+                 });
               });
             }
           }
