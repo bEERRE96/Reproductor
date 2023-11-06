@@ -138,7 +138,9 @@ body::-webkit-scrollbar-thumb {
     font-weight: 800;
     text-decoration: none;
     margin-left: 10px;
+    color: white;
 }
+
 
 /* TU BIBLIOTECA */
 
@@ -194,11 +196,59 @@ body::-webkit-scrollbar-thumb {
 .espaciadoMenu {
     height: 100px;
 }
-/* DIV RENDERIZADO PARA LISTAS */
 
-#listMusic{
+/******************DIV RENDERIZADO PARA LISTAS ****************/
+
+#renderizadoSecundario{
     display: none;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    min-height: 67vh;
+};
+
+#renderizadoPrimario{
+    display: block;
 }
+
+#divCancion{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#divSpanMasSpan{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#divCancion:hover{
+    background-color: rgba(15, 15, 15, .5);
+}
+
+#spanArtista{
+    font-style: italic;
+    font-size: 13px;
+}
+
+#botonPlaylist{
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/******************DIV RENDERIZADO PARA ALBUNS ****************/
+
+
+#botonAlbun{
+    background: transparent;
+    border: 0;
+}
+
 
 /* CONTENEDOR MAIN */
 
@@ -213,12 +263,12 @@ body::-webkit-scrollbar-thumb {
     padding: 15px 23px;
     width: 99%;
     border-radius: 2%;
-    margin: 0px 10px;
+    margin: 0px 15px;
 }
 
 .barraNav {
     grid-area: header;
-    height: 50px;
+    height: 90px;
     width: auto;
     display: flex;
     justify-content: space-between;
@@ -281,7 +331,7 @@ margin-left: 0px;
     align-items: center;
     justify-content: space-between;
     width: 30%;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #0F0F0F;
     gap: 10px;
     text-align: center;
@@ -292,11 +342,13 @@ margin-left: 0px;
     background-color: rgba(104, 103, 103, 0.1);
 }
 
-.tuMusica .albumNuevo {
+.albumNuevo {
     display: flex;
     flex-direction: column;
-    width: auto;
-    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 5px;
 }
 
 .listasRecomendadas {
@@ -306,7 +358,7 @@ margin-left: 0px;
 .segundaLinea{
     display: flex;
     flex-wrap: nowrap;
-    gap: 15px;
+    gap: 35px;
     justify-content: center;
     align-items: center;
 }
@@ -319,7 +371,7 @@ margin-left: 0px;
     border-radius: 10px;
     background-color: #0F0F0F;
     height: 12rem;
-    width: 10rem;
+    width: 12rem;
 }
 
 .segundaLinea div>span {
@@ -478,37 +530,3 @@ audio {
     background-repeat: no-repeat;
   }
 
-/*Contenedor principal de la renderizacion */
-  #renderizadoSecundario{
-    display:none;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-  }
-
-
-  /* Contenedor que separa spans y los botones */
-#divPlaylist{
-    display:flex;
-    justify-content: space-between;
-}
-
-#divPlaylist>button{
-    width: 200px;
-    border: 2px solid red;
-    cursor: pointer;
-}
-
-/*Contenedor de los span de las playlist*/
-
-  #divPlaylist2{
-    display: flex;
-    flex-direction: column;
-    gap:0px 8px;
-  }
-
-  #divPlaylist2>span:nth-child(1){
-    font-size: 25px;
-    font-weight: bold;
-    color: red;
-  }
