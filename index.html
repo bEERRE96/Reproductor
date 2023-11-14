@@ -107,10 +107,42 @@
                 <div>
                     <a class="atrasBut"><img src="./Assets/flecha.png" width="50px"></a>
                 </div>
+
                 <div>
-                    <button class="log">Login</button>
-                    <button class="reg">Sign Up</button>
+                    <button id="inicioLogin">Login</button>
+                    <form id="login" class="login" autocomplete="off">
+                        <h3>Login</h3>
+                
+                        <label for="username">Username</label>
+                        <input id="formularioMail" type="text" placeholder="Email">
+                
+                        <label for="password">Password</label>
+                        <input id="formularioPass" type="password" placeholder="Password" autocomplete="off">
+                
+                        <input id="botonSubmitLogin" type="submit" value="Enviar">
+                        <a href="#">Forgot Password?</a>
+                        <a href="#">Don't have an account?</a>
+                    </form>
+
+                    <button id="inicioReg">Sign Up</button>
+
+                    <form id="registro" autocomplete="off">
+                        <h3>Sign Up</h3>
+                        <label for="username">Username</label>
+                        <input id="formularioMailReg" type="text" placeholder="Email or Phone">
+
+                        <label for="password">Password</label>
+                        <input id="formularioPassReg" type="password" placeholder="Password" autocomplete="off">
+
+                        <label for="password">Repeat Password</label>
+                        <input id="formularioPassReg2" type="password" placeholder="Repeat Password" autocomplete="off">
+
+                        <input id="botonRegistro" type="submit" value="Enviar">
+
+                    </form>
+                   
                 </div>
+
             </div>
 
             <!-- TU MUSICA -->
@@ -207,56 +239,56 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/amorfoda.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/amorfoda.jpg" alt="">
                                 <span>
                                     Amorfoda
                                 </span>
                                 <span>
-                                    Bad Bunny
+                                    <i>Bad Bunny</i>
                                 </span>
                                 <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/battery.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/battery.jpg" alt="">
                                 <span>
                                     Battery
                                 </span>
                                 <span>
-                                    Metallica
+                                    <i>Metallica</i>
                                 </span>
                                 <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/atoutlemonde.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/atoutlemonde.jpg" alt="">
                                 <span>
                                     A tout le monde
                                 </span>
                                 <span>
-                                    Megadeth
+                                    <i>Megadeth</i>
                                 </span>
                                 <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/columbia.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/columbia.jpg" alt="">
                                 <span>
                                     Columbia
                                 </span>
                                 <span>
-                                    Quevedo
+                                    <i>Quevedo</i>
                                 </span>
                                 <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/2pac.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/2pac.jpg" alt="">
                                 <span>
                                     Changes
                                 </span>
                                 <span>
-                                    2Pac
+                                <i>2Pac</i>
                                 </span>
                                 <button id="reproducir" class="botonPlayLista2"><img src="./Assets/PLAY.png" alt=""
                                         width="0px" height="0px"></button>
@@ -274,7 +306,7 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/BLACK ALBUM.jpg" alt="">
                                 <span>
                                     Enter Sadman
                                 </span>
@@ -285,7 +317,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/andjustice.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/andjustice.jpg" alt="">
                                 <span>
                                     One
                                 </span>
@@ -296,7 +328,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/BLACK ALBUM.jpg" alt="">
                                 <span>
                                     Sad but True
                                 </span>
@@ -307,7 +339,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/BLACK ALBUM.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/BLACK ALBUM.jpg" alt="">
                                 <span>
                                     The Unforgiven
                                 </span>
@@ -318,7 +350,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/RIDETHELIGHTNING.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/RIDETHELIGHTNING.jpg" alt="">
                                 <span>
                                     Fade To Black
                                 </span>
@@ -341,7 +373,7 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/City Sessions.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/City Sessions.jpeg" alt="">
                                 <span>
                                     Accidentally In Love
                                 </span>
@@ -352,7 +384,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/City Sessions.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/City Sessions.jpeg" alt="">
                                 <span>
                                     Dont You Worry Child
                                 </span>
@@ -363,7 +395,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/City Sessions.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/City Sessions.jpeg" alt="">
                                 <span>
                                     Boulevard Of Broken
                                 </span>
@@ -374,7 +406,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/City Sessions.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/City Sessions.jpeg" alt="">
                                 <span>
                                     Another Love
                                 </span>
@@ -385,7 +417,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/City Sessions.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/City Sessions.jpeg" alt="">
                                 <span>
                                     Blinding Lights
                                 </span>
@@ -409,7 +441,7 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/gloria gaynor.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/gloria gaynor.jpg" alt="">
                                 <span>
                                     I Will Survive
                                 </span>
@@ -420,7 +452,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/amy winehouse.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/amy winehouse.jpg" alt="">
                                 <span>
                                     Back to Black
                                 </span>
@@ -431,7 +463,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/amy winehouse.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/amy winehouse.jpg" alt="">
                                 <span>
                                     You Know Im No Good
                                 </span>
@@ -442,7 +474,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets//bonnie tyler.jpg" width="130px" height="100px">
+                                <img src="./Assets//bonnie tyler.jpg">
                                 <span>
                                     Holding Out for a Hero
                                 </span>
@@ -453,7 +485,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/sheryl crow.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/sheryl crow.jpg" alt="">
                                 <span>
                                     Sweet child O'mine
                                 </span>
@@ -477,7 +509,7 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/frank sinatra.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/frank sinatra.jpg" alt="">
                                 <span>
                                     Fly Me To The Moon
                                 </span>
@@ -488,7 +520,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/louis armstrong.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/louis armstrong.jpeg" alt="">
                                 <span>
                                     La Vie En Rose
                                 </span>
@@ -499,7 +531,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/ray charles.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/ray charles.jpg" alt="">
                                 <span>
                                     Hit the Road Jack
                                 </span>
@@ -510,7 +542,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/elvis prasley.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/elvis prasley.jpg" alt="">
                                 <span>
                                     Cant Help Falling in Love
                                 </span>
@@ -521,7 +553,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/stewie wonder.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/stewie wonder.jpg" alt="">
                                 <span>
                                     I Just Called to Say I Love You
                                 </span>
@@ -545,9 +577,9 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/gustavo cerati.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/gustavo cerati.jpg" alt="">
                                 <span>
-                                    Crímenes Perfectos
+                                    Crimenes Perfectos
                                 </span>
                                 <span>
                                     <i>Gustavo Cerati</i>
@@ -556,7 +588,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/spinetta.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/spinetta.jpg" alt="">
                                 <span>
                                     Seguir Viviendo sin tu Amor
                                 </span>
@@ -567,7 +599,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/carlos gardel.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/carlos gardel.jpg" alt="">
                                 <span>
                                     Por Una Cabeza
                                 </span>
@@ -578,7 +610,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/damas gratis.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/damas gratis.jpg" alt="">
                                 <span>
                                     No te Creas tan Importante
                                 </span>
@@ -589,9 +621,9 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/maria becerra.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/maria becerra.jpg" alt="">
                                 <span>
-                                    CORAZÓN VACÍO
+                                    CORAZON VACIO
                                 </span>
                                 <span>
                                     <i>Maria Becerra</i>
@@ -613,7 +645,7 @@
                     <div class="listasRecomendadas">
                         <div class="segundaLinea">
                             <div>
-                                <img src="./Assets/red hot chili peppers.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/red hot chili peppers.jpg" alt="">
                                 <span>
                                     Californication
                                 </span>
@@ -624,7 +656,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/radiohead.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/radiohead.jpeg" alt="">
                                 <span>
                                     Creep
                                 </span>
@@ -635,7 +667,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/guns and roses.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/guns and roses.jpg" alt="">
                                 <span>
                                     Dont Cry
                                 </span>
@@ -646,7 +678,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/scorpions.jpg" alt="" width="130px" height="100px">
+                                <img src="./Assets/scorpions.jpg" alt="">
                                 <span>
                                     Still Loving You
                                 </span>
@@ -657,7 +689,7 @@
                                         width="0px" height="0px"></button>
                             </div>
                             <div>
-                                <img src="./Assets/stephen sanchez.jpeg" alt="" width="130px" height="100px">
+                                <img src="./Assets/stephen sanchez.jpeg" alt="">
                                 <span>
                                     Until I Found You
                                 </span>
@@ -699,15 +731,17 @@
                 </div>
 
                 <div class="botonesRepro">
-                    <button id="botonBack"><img src="./Assets/BACK_REPRO-removebg-preview.png" width="50px"
-                            height="50px"></button>
+                    <button id="botonAtras"><img src="./Assets/3-removebg-preview.png" alt="" width="50px" height="50px"></button>
+                    <button id="botonFiveBack"><img src="./Assets/12-removebg-preview.png" width="40px"
+                            height="40px"></button>
                     <button id="botonPause"><img src="./Assets/PAUSE_REPRO-removebg-preview.png" width="50px"
                             height="50px"></button>
                     <button id="botonPlay"><img src="./Assets/PLAY_REPRO-removebg-preview.png" width="50px"
                             height="50px"></button>
                     <button id="botonStop"><img src="./Assets/stop.png" alt="" width="50px" height="50px"></button>
-                    <button id="botonNext"><img src="./Assets/NEXT_REPRO-removebg-preview.png" width="50px"
-                            height="50px"></button>
+                    <button id="botonFiveNext"><img src="./Assets/11-removebg-preview.png" width="40px"
+                            height="40px"></button>
+                    <button id="botonNext"><img src="./Assets/5-removebg-preview.png" alt="" width="50px" height="50px"></button>
                     <audio src="#" controls></audio>
                 </div>
 
