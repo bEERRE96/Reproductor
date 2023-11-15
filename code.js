@@ -287,7 +287,7 @@ let listasReproduccion = document.querySelectorAll("#listasReproduccion");
 
 listasReproduccion.forEach((divPlaylist) => {
   //Recorro cada div con id "listasRe..." con el parametro divPlaylist
-
+ 
   divPlaylist.addEventListener("click", () => {
     let indiceInicio;
     let indiceF;
