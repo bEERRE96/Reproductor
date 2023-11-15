@@ -83,7 +83,8 @@
       {
         "nombre": "A tout le monde",
         "url": "./Songs/Megadeth - A tout le monde.mp3",
-        "artista": "Megadeth"
+        "artista": "Megadeth",
+        "id": 12
       },
       {
         "nombre": "Invisible",
