@@ -1,7 +1,7 @@
 [
   {
     "nombre": "Mi Musica",
-    "Listados": [
+    "listado": [
       {
         "nombre": "Amorfoda",
         "url": "./Songs/Bad Bunny - Amorfoda.mp3",
@@ -37,7 +37,7 @@
 
   {
     "nombre": "Para Discoteca",
-    "Listados": [
+    "listado": [
       {
         "nombre": "Battery",
         "url": "./Songs/Metallica - Battery Remastered.mp3",
@@ -73,7 +73,7 @@
 
   {
     "nombre": "Relajante",
-    "Listados": [
+    "listado": [
       {
         "nombre": "Changes",
         "url": "./Songs/2Pac - Changes.mp3",
@@ -83,8 +83,7 @@
       {
         "nombre": "A tout le monde",
         "url": "./Songs/Megadeth - A tout le monde.mp3",
-        "artista": "Megadeth",
-        "id":12
+        "artista": "Megadeth"
       },
       {
         "nombre": "Invisible",
@@ -109,7 +108,7 @@
 
   {
     "nombre": "Ritmos Latinos",
-    "Listados": [
+    "listado": [
       {
         "nombre": "Russian Strings",
         "url": "./Songs/BLUR - Russian Strings.mp3",
@@ -145,34 +144,34 @@
 
   {
     "nombre": "Techno - Electronic",
-    "Listados": [
+    "listado": [
       {
         "nombre": "No se si tu no",
-        "url": "Url Cancion 38",
+        "url": "./Songs/Rels B - No Se Si Tu No.mp3",
         "artista": "Rels B",
         "id": 21
       },
       {
         "nombre": "Baby BOO",
-        "url": "Url Cancion 39",
+        "url": "./Songs/Rels B - baby BOO.mp3",
         "artista": "Rels B",
         "id": 22
       },
       {
         "nombre": "Media Pastiii",
-        "url": "Url Cancion 40",
+        "url": "./Songs/Rels B - Media Pastiii.mp3",
         "artista": "Rels B",
         "id": 23
       },
       {
         "nombre": "Fruto",
-        "url": "Url Cancion 42",
+        "url": "./Songs/MILO J - Fruto.mp3",
         "artista": "Milo J",
         "id": 24
       },
       {
         "nombre": "Penas de Antaño",
-        "url": "Url Cancion 43",
+        "url": "./Songs/MILO J - Penas de Antaño.mp3",
         "artista": "Milo J",
         "id": 25
       }
@@ -181,7 +180,7 @@
 
   {
     "nombre": "Variado",
-    "Listados": [
+    "listado": [
       {
         "nombre": "No se si tu no",
         "url": "Url Cancion 38",
