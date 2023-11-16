@@ -20,124 +20,281 @@ const nombreCancionReproducida = document.querySelector(
 
 let regex = /\S+/g;
 
-botonReproducir.forEach((boton) => {
-  const botones = boton.parentNode;
-  boton.value = botones
-    .querySelector("span")
-    .textContent.match(regex)
-    .join(" ");
-});
+let indiceInicio;
+let estado;
 
-/* CREA UN ELEMENTO SPAN Y SE LO AGREGO AL DIV DECLARADO EN EL HTML*/
-let crearSpan = document.createElement("span");
-crearSpan.setAttribute("id", "spanReproductor");
-nombreCancionReproducida.appendChild(crearSpan);
-
-//MANEJO DE VOLUMEN AL INICIAR CANCION
-
-reproductorMusica.volume = 0.25;
-
-botonReproducir.forEach((boton) => {
-  let indiceInicio;
-  boton.addEventListener("click", () => {
-    for (let cancion of canciones) {
-      if (cancion.nombre.toLowerCase() === boton.value.toLowerCase()) {
-        reproductorMusica.src = `${cancion.url}`;
-        indiceInicio = cancion.id;
-        reproductorMusica.play();
-        botonPlay.style.display = "none";
-        botonPause.style.display = "block";
-        crearSpan.setAttribute("id", "spanReproductor");
-        crearSpan.textContent = `${cancion.nombre} - ${cancion.artista}`;
+function modificarBotonAtras(){
+if(estado === "albumes"){
+    let indiceF;
+  let indiceFiltro;
+  let indiceFiltro2;
+    function cancionAtras() {
+    albums.forEach((song) => {
+      song.listado.forEach((c) => {
+        if (c.id === indiceInicio) {
+          indiceF = c;
+        }
+      });
+    });
+    indiceFiltro = albums.findIndex((song) => {
+      return song.listado.includes(indiceF);
+    });
+    indiceFiltro2 = albums[indiceFiltro].listado.findIndex((c) => {
+      return c.id === indiceF.id;
+    });
+  
+    if (indiceFiltro2 > 0) {
+      indiceInicio = albums[indiceFiltro].listado[indiceFiltro2 - 1].id;
+      reproductorMusica.src =
+        albums[indiceFiltro].listado[indiceFiltro2 - 1].url;
+      reproductorMusica.play();
+      botonPlay.style.display = "none";
+      botonPause.style.display = "block";
+      crearSpan.textContent = `${
+        albums[indiceFiltro].listado[indiceFiltro2 - 1].nombre
+      } - ${albums[indiceFiltro].listado[indiceFiltro2 - 1].artista}`;
+    }
+  }
+cancionAtras()
+  }
+  else if(estado === "canciones"){
+    function cancionAtras() {
+      let indiceFiltro = canciones.findIndex((song) => song.id === indiceInicio)
+      if(reproductorMusica.currentTime > 1){
+        reproductorMusica.currentTime = 0;
+        reproductorMusica.play()  
+      }else{
+      if (indiceFiltro > 0) {
+        indiceInicio = canciones[indiceFiltro - 1].id;
+        crearSpan.textContent = `${canciones[indiceFiltro - 1].nombre} - ${canciones[indiceFiltro - 1].artista}`
+        reproductorMusica.src = canciones[indiceFiltro - 1].url;
+        reproductorMusica.play()
       }
     }
+  }
+cancionAtras()
+  }
+  else if(estado === "playlist"){
+
+let indiceF;
+  let indiceFiltro;
+  let indiceFiltro2;
+
+    function cancionAtras() {
+  playlist.forEach((song) => {
+    song.listado.forEach((c) => {
+      if (c.id === indiceInicio) {
+        indiceF = c;
+      }
+    });
+  });
+  indiceFiltro = playlist.findIndex((song) => {
+    return song.listado.includes(indiceF);
+  });
+  indiceFiltro2 = playlist[indiceFiltro].listado.findIndex((c) => {
+    return c.id === indiceF.id;
+  });
+
+  if (indiceFiltro2 > 0) {
+    indiceInicio = playlist[indiceFiltro].listado[indiceFiltro2 - 1].id;
+    reproductorMusica.src =
+      playlist[indiceFiltro].listado[indiceFiltro2 - 1].url;
+    reproductorMusica.play();
+    botonPlay.style.display = "none";
+    botonPause.style.display = "block";
+    crearSpan.textContent = `${
+      playlist[indiceFiltro].listado[indiceFiltro2 - 1].nombre
+    } - ${playlist[indiceFiltro].listado[indiceFiltro2 - 1].artista}`;
+  }
+}
+cancionAtras()
+  }
+
+}
+
+function modificarBotonNext(){
+  if(estado === "albumes"){
+  let indiceF;
+  let indiceFiltro;
+  let indiceFiltro2;
+  
+  function cancionSiguiente() {
+    albums.forEach((song) => {
+      song.listado.forEach((c) => {
+        if (c.id === indiceInicio) {
+          indiceF = c;
+        }
+      });
+    });
+    indiceFiltro = albums.findIndex((song) => {
+      return song.listado.includes(indiceF);
+    });
+    indiceFiltro2 = albums[indiceFiltro].listado.findIndex((c) => {
+      return c.id === indiceF.id;
+    });
+    if (indiceFiltro2 < albums[indiceFiltro].listado.length - 1) {
+      indiceInicio = albums[indiceFiltro].listado[indiceFiltro2 + 1].id;
+      reproductorMusica.src =
+        albums[indiceFiltro].listado[indiceFiltro2 + 1].url;
+      reproductorMusica.play();
+      botonPlay.style.display = "none";
+      botonPause.style.display = "block";
+      crearSpan.textContent = `${
+        albums[indiceFiltro].listado[indiceFiltro2 + 1].nombre
+      } - ${albums[indiceFiltro].listado[indiceFiltro2 + 1].artista}`;
+    }
+  }
+cancionSiguiente()
+  }
+  else if(estado === "canciones"){
     function cancionSiguiente() {
-      let indiceFiltro = canciones.findIndex(
-        (song) => song.id === indiceInicio
-      );
+      let indiceFiltro = canciones.findIndex((song) => song.id === indiceInicio)
       if (indiceFiltro < canciones.length - 1) {
-        crearSpan.textContent = `${canciones[indiceFiltro + 1].nombre} - ${
-          canciones[indiceFiltro + 1].artista
-        }`;
+        crearSpan.textContent = `${canciones[indiceFiltro + 1].nombre} - ${canciones[indiceFiltro + 1].artista}`
         indiceInicio = canciones[indiceFiltro + 1].id;
         console.log(canciones[indiceFiltro + 1].url);
         reproductorMusica.src = canciones[indiceFiltro + 1].url;
-        reproductorMusica.play();
+        reproductorMusica.play()
       }
     }
+cancionSiguiente()
+  }
+  else if(estado === "playlist"){
+let indiceF;
+let indiceFiltro;
+let indiceFiltro2;
 
-    function cancionAtras() {
-      let indiceFiltro = canciones.findIndex(
-        (song) => song.id === indiceInicio
-      );
-      if (reproductorMusica.currentTime > 1) {
-        reproductorMusica.currentTime = 0;
-        reproductorMusica.play();
-      } else {
-        if (indiceFiltro > 0) {
-          indiceInicio = canciones[indiceFiltro - 1].id;
-          crearSpan.textContent = `${canciones[indiceFiltro - 1].nombre} - ${
-            canciones[indiceFiltro - 1].artista
-          }`;
-          reproductorMusica.src = canciones[indiceFiltro - 1].url;
-          reproductorMusica.play();
-        }
+function cancionSiguiente() {
+  playlist.forEach((song) => {
+    song.listado.forEach((c) => {
+      if (c.id === indiceInicio) {
+        indiceF = c;
       }
-    }
-
-    botonNextReproductor.removeEventListener("click", cancionSiguiente);
-    botonNextReproductor.addEventListener("click", cancionSiguiente);
-    botonAtrasReproductor.removeEventListener("click", cancionAtras);
-    botonAtrasReproductor.addEventListener("click", cancionAtras);
+    });
   });
+  indiceFiltro = playlist.findIndex((song) => {
+    return song.listado.includes(indiceF);
+  });
+  indiceFiltro2 = playlist[indiceFiltro].listado.findIndex((c) => {
+    return c.id === indiceF.id;
+  });
+  if (indiceFiltro2 < playlist[indiceFiltro].listado.length - 1) {
+    indiceInicio = playlist[indiceFiltro].listado[indiceFiltro2 + 1].id;
+    reproductorMusica.src =
+      playlist[indiceFiltro].listado[indiceFiltro2 + 1].url;
+    reproductorMusica.play();
+    botonPlay.style.display = "none";
+    botonPause.style.display = "block";
+    crearSpan.textContent = `${
+      playlist[indiceFiltro].listado[indiceFiltro2 + 1].nombre
+    } - ${playlist[indiceFiltro].listado[indiceFiltro2 + 1].artista}`;
+  }
+}
+cancionSiguiente()
+  }
+
+}
+
+
+botonReproducir.forEach(boton => {
+  const botones = boton.parentNode;
+  boton.value = botones.querySelector("span").textContent.match(regex).join(" ");
+
+
 });
+
+
+let crearSpan = document.createElement("span");
+crearSpan.setAttribute("id", "spanReproductor")
+nombreCancionReproducida.appendChild(crearSpan);
+
+
+reproductorMusica.volume = 0.25;  
+botonReproducir.forEach(boton => {
+ 
+  boton.addEventListener("click", () => {
+    for (let cancion of canciones) { 
+      if (cancion.nombre.toLowerCase() === boton.value.toLowerCase())
+      {
+        reproductorMusica.src = `${cancion.url}`
+estado = "canciones"
+        indiceInicio = cancion.id;  
+        reproductorMusica.play(); 
+        botonPlay.style.display = "none";
+        botonPause.style.display = "block";
+        crearSpan.setAttribute("id", "spanReproductor")
+        crearSpan.textContent = `${cancion.nombre} - ${cancion.artista}` 
+      }
+    }
+
+    botonNextReproductor.removeEventListener("click", modificarBotonNext);
+    botonNextReproductor.addEventListener("click", modificarBotonNext);
+    botonAtrasReproductor.removeEventListener("click", modificarBotonAtras);
+    botonAtrasReproductor.addEventListener("click",modificarBotonAtras);
+  })
+
+});
+
 
 botonFiveNext.addEventListener("click", () => {
-  reproductorMusica.currentTime += 5;
-});
+  reproductorMusica.currentTime += 5; 
+}
+)
 
 botonPause.addEventListener("click", () => {
-  reproductorMusica.pause();
+  reproductorMusica.pause(); 
   botonPlay.style.display = "block";
   botonPause.style.display = "none";
-});
+}
+)
 
-botonStop.addEventListener("click", () => {
-  reproductorMusica.pause();
-  if ((botonPause.style.display = "block")) {
+botonStop.addEventListener("click", () => { 
+  reproductorMusica.pause(); 
+  reproductorMusica.currentTime = 0;
+  if (botonPause.style.display = "block") { 
     botonPlay.style.display = "block";
     botonPause.style.display = "none";
   }
-});
+}
+)
 
-botonPlay.addEventListener("click", (e) => {
-  e.preventDefault();
-  if (reproductorMusica.src != "#") {
-    reproductorMusica.play();
+
+botonPlay.addEventListener("click", (e) => { 
+  e.preventDefault()
+  if (reproductorMusica.src != "#") { 
+    reproductorMusica.play()
 
     botonPlay.style.display = "none";
     botonPause.style.display = "block";
   }
-});
+}
+);
+
 
 botonFiveNext.addEventListener("click", () => {
   reproductorMusica.currentTime += 5;
-});
+}
+);
+
 
 botonFiveBack.addEventListener("click", () => {
   if (reproductorMusica.currentTime >= 6) {
-    reproductorMusica.currentTime -= 5;
+    reproductorMusica.currentTime -= 5
   }
 });
+
 
 volume.addEventListener("change", (ev) => {
   reproductorMusica.volume = ev.currentTarget.value / 100;
   console.log(reproductorMusica.volume);
-});
+})
 
-/********************RENDERIZAR ALBUMS************************/
-
+/*****************************************************RENDERIZAR ALBUMS*********************************************************/
 const divAlbums = document.querySelectorAll("#divAlbums");
+
+
+function renderizadoDeAlbums(){
+
 
 divAlbums.forEach((divsAlbunes) => {
   divsAlbunes.addEventListener("click", () => {
@@ -145,6 +302,16 @@ divAlbums.forEach((divsAlbunes) => {
     renderizadoPrimario.style.display = "none";
     renderizadoSecundario.style.display = "flex";
     crearSpan.setAttribute("id", "spanReproductor");
+    estado = "albumes"
+        botonNextReproductor.removeEventListener("click", modificarBotonNext);
+    botonNextReproductor.addEventListener("click", modificarBotonNext);
+    botonAtrasReproductor.removeEventListener("click", modificarBotonAtras);
+    botonAtrasReproductor.addEventListener("click",modificarBotonAtras);
+
+    botonAtras.addEventListener("click", () => {
+       botonNextReproductor.removeEventListener("click", modificarBotonNext);
+       botonAtrasReproductor.removeEventListener("click", modificarBotonAtras)
+    });
 
     let spanAlbumes = divsAlbunes.querySelector("span").textContent;
 
@@ -244,197 +411,153 @@ divAlbums.forEach((divsAlbunes) => {
     }
   });
 });
+}
+
+renderizadoDeAlbums();
 
 /*************************************************RENDERIZADO DE PLAYLIST***********************************************************/
-
 let renderizadoPrimario = document.querySelector("#renderizadoPrimario");
 let renderizadoSecundario = document.querySelector("#renderizadoSecundario");
 let listasReproduccion = document.querySelectorAll("#listasReproduccion");
 
-function renderizadoDePlaylist() {
-  let indiceInicio;
-  let indiceF;
-  let indiceFiltro;
-  let indiceFiltro2;
 
-  function cancionSiguiente() {
-    playlist.forEach((song) => {
-      song.listado.forEach((c) => {
-        if (c.id === indiceInicio) {
-          indiceF = c;
-        }
-      });
-    });
-    indiceFiltro = playlist.findIndex((song) => {
-      return song.listado.includes(indiceF);
-    });
-    indiceFiltro2 = playlist[indiceFiltro].listado.findIndex((c) => {
-      return c.id === indiceF.id;
-    });
-    if (indiceFiltro2 < playlist[indiceFiltro].listado.length - 1) {
-      indiceInicio = playlist[indiceFiltro].listado[indiceFiltro2 + 1].id;
-      reproductorMusica.src =
-        playlist[indiceFiltro].listado[indiceFiltro2 + 1].url;
-      reproductorMusica.play();
-      botonPlay.style.display = "none";
-      botonPause.style.display = "block";
-      crearSpan.textContent = `${
-        playlist[indiceFiltro].listado[indiceFiltro2 + 1].nombre
-      } - ${playlist[indiceFiltro].listado[indiceFiltro2 + 1].artista}`;
-    }
-  }
 
-  function cancionAtras() {
-    playlist.forEach((song) => {
-      song.listado.forEach((c) => {
-        if (c.id === indiceInicio) {
-          indiceF = c;
-        }
-      });
-    });
-    indiceFiltro = playlist.findIndex((song) => {
-      return song.listado.includes(indiceF);
-    });
-    indiceFiltro2 = playlist[indiceFiltro].listado.findIndex((c) => {
-      return c.id === indiceF.id;
+function renderizadoDePlaylist(){
+
+listasReproduccion.forEach((divPlaylist) => {
+
+  divPlaylist.addEventListener("click", () => {
+
+    botonNextReproductor.removeEventListener("click", modificarBotonNext);
+    botonNextReproductor.addEventListener("click", modificarBotonNext);
+    botonAtrasReproductor.removeEventListener("click", modificarBotonAtras);
+    botonAtrasReproductor.addEventListener("click",modificarBotonAtras);
+    estado = "playlist";
+    botonAtras.addEventListener("click", () => {
+    botonNextReproductor.removeEventListener("click", modificarBotonNext);
+       botonAtrasReproductor.removeEventListener("click", modificarBotonAtras)
     });
 
-    if (indiceFiltro2 > 0) {
-      indiceInicio = playlist[indiceFiltro].listado[indiceFiltro2 - 1].id;
-      reproductorMusica.src =
-        playlist[indiceFiltro].listado[indiceFiltro2 - 1].url;
-      reproductorMusica.play();
-      botonPlay.style.display = "none";
-      botonPause.style.display = "block";
-      crearSpan.textContent = `${
-        playlist[indiceFiltro].listado[indiceFiltro2 - 1].nombre
-      } - ${playlist[indiceFiltro].listado[indiceFiltro2 - 1].artista}`;
-    }
-  }
+  
+    renderizadoPrimario.style.display = "none"; 
+    renderizadoSecundario.style.display = "flex"; 
 
-  listasReproduccion.forEach((divPlaylist) => {
-    divPlaylist.addEventListener("click", () => {
-      botonNextReproductor.removeEventListener("click", cancionSiguiente);
-      botonAtrasReproductor.removeEventListener("click", cancionAtras);
-      botonNextReproductor.addEventListener("click", cancionSiguiente);
-      botonAtrasReproductor.addEventListener("click", cancionAtras);
+    for (let playLista of divPlaylist.children) {
+      let spanListas = playLista.querySelector("span"); 
 
-      botonAtras.addEventListener("click", () => {
-        botonNextReproductor.removeEventListener("click", cancionSiguiente);
-        botonAtrasReproductor.removeEventListener("click", cancionAtras);
-      });
+      playlist.forEach((jsonPlaylist) => {
+        if (spanListas) {
 
-      renderizadoPrimario.style.display = "none";
-      renderizadoSecundario.style.display = "flex";
+          if (
+            jsonPlaylist.nombre.toLowerCase() ===
+            spanListas.textContent.toLowerCase()
+          ) {
+            if (renderizadoSecundario.length === 0) {
 
-      for (let playLista of divPlaylist.children) {
-        let spanListas = playLista.querySelector("span");
+              jsonPlaylist.listado.forEach((cancionesListados) => {
+                const divPlaylist = document.createElement("div"); 
+                const botonPlaylist = document.createElement("button"); 
+                const divCancion = document.createElement("div"); 
+                const divSpanMasSpan = document.createElement("div");
+                const spanArtista = document.createElement("span"); 
+                const spanCancion = document.createElement("span");
 
-        playlist.forEach((jsonPlaylist) => {
-          if (spanListas) {
-            if (
-              jsonPlaylist.nombre.toLowerCase() ===
-              spanListas.textContent.toLowerCase()
-            ) {
-              if (renderizadoSecundario.length === 0) {
-                jsonPlaylist.listado.forEach((cancionesListados) => {
-                  const divPlaylist = document.createElement("div");
-                  const botonPlaylist = document.createElement("button");
-                  const divCancion = document.createElement("div");
-                  const divSpanMasSpan = document.createElement("div");
-                  const spanArtista = document.createElement("span");
-                  const spanCancion = document.createElement("span");
+                divPlaylist.setAttribute("id", "playlistDiv");
+                botonPlaylist.setAttribute("id", "botonPlaylist");
+                divCancion.setAttribute("id", "divCancion");
+                divSpanMasSpan.setAttribute("id", "divSpanMasSpan");
+                spanArtista.setAttribute("id", "spanArtista");
 
-                  divPlaylist.setAttribute("id", "playlistDiv");
-                  botonPlaylist.setAttribute("id", "botonPlaylist");
-                  divCancion.setAttribute("id", "divCancion");
-                  divSpanMasSpan.setAttribute("id", "divSpanMasSpan");
-                  spanArtista.setAttribute("id", "spanArtista");
+                renderizadoSecundario.appendChild(divPlaylist);
+                divPlaylist.appendChild(divCancion);
+                divCancion.appendChild(divSpanMasSpan);
+                divCancion.appendChild(botonPlaylist);
+                divSpanMasSpan.appendChild(spanCancion);
+                divSpanMasSpan.appendChild(spanArtista);
 
-                  renderizadoSecundario.appendChild(divPlaylist);
-                  divPlaylist.appendChild(divCancion);
-                  divCancion.appendChild(divSpanMasSpan);
-                  divCancion.appendChild(botonPlaylist);
-                  divSpanMasSpan.appendChild(spanCancion);
-                  divSpanMasSpan.appendChild(spanArtista);
+                spanArtista.textContent = `${cancionesListados.artista}`;
+                spanCancion.textContent = `${cancionesListados.nombre}`;
+                botonPlaylist.innerHTML =
+                  '<img src="./Assets/PLAY.png" width="20px" heigth="20px">';
 
-                  spanArtista.textContent = `${cancionesListados.artista}`;
-                  spanCancion.textContent = `${cancionesListados.nombre}`;
-                  botonPlaylist.innerHTML =
-                    '<img src="./Assets/PLAY.png" width="20px" heigth="20px">';
 
-                  divCancion.addEventListener("click", () => {
-                    if (
-                      divSpanMasSpan.children[0].textContent.toLowerCase() ===
-                      cancionesListados.nombre.toLowerCase()
-                    ) {
-                      reproductorMusica.src = `${cancionesListados.url}`;
-                      indiceInicio = cancionesListados.id;
-                      reproductorMusica.play();
-                      botonPlay.style.display = "none";
-                      botonPause.style.display = "block";
-                      crearSpan.setAttribute("id", "spanReproductor");
-                      crearSpan.textContent = `${cancionesListados.nombre} - ${cancionesListados.artista}`;
-                      console.log(indiceInicio);
-                    }
-                  });
+
+                divCancion.addEventListener("click", () => {
+                  if (
+                    divSpanMasSpan.children[0].textContent.toLowerCase() ===
+                    cancionesListados.nombre.toLowerCase()
+                  ) {
+                    reproductorMusica.src = `${cancionesListados.url}`;
+                    indiceInicio = cancionesListados.id;
+                    reproductorMusica.play();
+                    botonPlay.style.display = "none";
+                    botonPause.style.display = "block";
+                    crearSpan.setAttribute("id", "spanReproductor");
+                    crearSpan.textContent = `${cancionesListados.nombre} - ${cancionesListados.artista}`;
+                    console.log(indiceInicio);
+                  }
                 });
-              } else {
-                renderizadoSecundario.innerHTML = `<div id="renderizadoSecundario"></div>`;
-                jsonPlaylist.listado.forEach((cancionesListados) => {
-                  const divPlaylist = document.createElement("div");
-                  const botonPlaylist = document.createElement("button");
-                  const divCancion = document.createElement("div");
-                  const divSpanMasSpan = document.createElement("div");
-                  const spanArtista = document.createElement("span");
-                  const spanCancion = document.createElement("span");
-                  const imagenBotonLista = document.createElement("img");
+              });
+            } else {
+              renderizadoSecundario.innerHTML = `<div id="renderizadoSecundario"></div>`;
+              jsonPlaylist.listado.forEach((cancionesListados) => {
+                const divPlaylist = document.createElement("div");
+                const botonPlaylist = document.createElement("button");
+                const divCancion = document.createElement("div");
+                const divSpanMasSpan = document.createElement("div");
+                const spanArtista = document.createElement("span");
+                const spanCancion = document.createElement("span");
+                const imagenBotonLista = document.createElement("img");
 
-                  divPlaylist.setAttribute("id", "playlistDiv");
-                  botonPlaylist.setAttribute("id", "botonPlaylist");
-                  divCancion.setAttribute("id", "divCancion");
-                  divSpanMasSpan.setAttribute("id", "divSpanMasSpan");
-                  spanArtista.setAttribute("id", "spanArtista");
+                divPlaylist.setAttribute("id", "playlistDiv");
+                botonPlaylist.setAttribute("id", "botonPlaylist");
+                divCancion.setAttribute("id", "divCancion");
+                divSpanMasSpan.setAttribute("id", "divSpanMasSpan");
+                spanArtista.setAttribute("id", "spanArtista");
 
-                  renderizadoSecundario.appendChild(divPlaylist);
-                  divPlaylist.appendChild(divCancion);
-                  divCancion.appendChild(divSpanMasSpan);
-                  divCancion.appendChild(botonPlaylist);
-                  divSpanMasSpan.appendChild(spanCancion);
-                  divSpanMasSpan.appendChild(spanArtista);
-                  botonPlaylist.appendChild(imagenBotonLista);
+                renderizadoSecundario.appendChild(divPlaylist);
+                divPlaylist.appendChild(divCancion);
+                divCancion.appendChild(divSpanMasSpan);
+                divCancion.appendChild(botonPlaylist);
+                divSpanMasSpan.appendChild(spanCancion);
+                divSpanMasSpan.appendChild(spanArtista);
+                botonPlaylist.appendChild(imagenBotonLista);
 
-                  spanArtista.textContent = `${cancionesListados.artista}`;
-                  spanCancion.textContent = `${cancionesListados.nombre}`;
-                  botonPlaylist.innerHTML =
-                    '<img  src="./Assets/PLAY.png" width="20px" heigth="20px">';
+ 
+                spanArtista.textContent = `${cancionesListados.artista}`;
+                spanCancion.textContent = `${cancionesListados.nombre}`;
+                botonPlaylist.innerHTML =
+                  '<img  src="./Assets/PLAY.png" width="20px" heigth="20px">';
 
-                  divCancion.addEventListener("click", () => {
-                    if (
-                      divSpanMasSpan.children[0].textContent.toLowerCase() ===
-                      cancionesListados.nombre.toLowerCase()
-                    ) {
-                      reproductorMusica.src = `${cancionesListados.url}`;
-                      indiceInicio = cancionesListados.id;
-                      reproductorMusica.play();
-                      botonPlay.style.display = "none";
-                      botonPause.style.display = "block";
-                      crearSpan.setAttribute("id", "spanReproductor");
-                      crearSpan.textContent = `${cancionesListados.nombre} - ${cancionesListados.artista}`;
-                      console.log(indiceInicio);
-                    }
-                  });
+
+                divCancion.addEventListener("click", () => {
+                  if (
+                    divSpanMasSpan.children[0].textContent.toLowerCase() ===
+                    cancionesListados.nombre.toLowerCase()
+                  ) {
+                    reproductorMusica.src = `${cancionesListados.url}`;
+                    indiceInicio = cancionesListados.id;
+                    reproductorMusica.play();
+                    botonPlay.style.display = "none";
+                    botonPause.style.display = "block";
+                    crearSpan.setAttribute("id", "spanReproductor");
+                    crearSpan.textContent = `${cancionesListados.nombre} - ${cancionesListados.artista}`;
+                    console.log(indiceInicio);
+                  } 
                 });
-              }
+              });
             }
           }
-        });
-      }
-    });
+        }
+      });
+    }
   });
+});
 }
 
-renderizadoDePlaylist();
+renderizadoDePlaylist()
+
+
 
 /************************************INPUT BUSCAR CANCION***********************************************/
 
